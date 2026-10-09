@@ -13,16 +13,16 @@ int main(void)
     printf("                  Enter details of one order below \n");
     printf("--------------------------------------------------------------------------------\n");
 
-    printf("Enter order num.\t: ");
+    printf("Enter order num.: ");
     scanf("%d", &OrderNum);
     
-    printf("Enter cloth type (1 = panjabi)\t: ");
+    printf("Enter cloth type (1 = panjabi): ");
     scanf("%d", &ClothingType);
 
-    printf("Enter Quantity\t: ");
+    printf("Enter Quantity: ");
     scanf("%d", &Quantity);
 
-    printf("Enter unit price\t: ");
+    printf("Enter unit price: ");
     scanf("%lf", &UnitPrice);
 
     Subtotal = Quantity * UnitPrice;
