@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define D 0.25
+#define D 0.25 //D is the discount
 
 int main(void)
 {
@@ -10,7 +10,7 @@ int main(void)
     printf("================================================================================\n");
     printf("                  TAILORING & BOUTIQUE ORDER BOOK SYSTEM                        \n");
     printf("================================================================================\n");
-    printf("   Enter details of one order below \n");
+    printf("                  Enter details of one order below \n");
     printf("--------------------------------------------------------------------------------\n");
 
     printf("Enter order num.\t: ");
@@ -22,7 +22,7 @@ int main(void)
     printf("Enter Quantity\t: ");
     scanf("%d", &Quantity);
 
-    printf("Eeter unit price\t: ");
+    printf("Enter unit price\t: ");
     scanf("%lf", &UnitPrice);
 
     Subtotal = Quantity * UnitPrice;
@@ -30,14 +30,15 @@ int main(void)
     Total = Subtotal - Discount;
 
     printf("================================================================================\n");
-    printf("                     ORDER RECORD                                               \n");
+    printf("                                 ORDER RECORD                                   \n");
     printf("================================================================================\n");
-
-    printf(" Order No.\t: %d\n", OrderNum);
+    printf("Order No.\t: %d\n", OrderNum);
     printf("Clothing Type\t: %d\n", ClothingType);
     printf("Quantity\t: %d\n", Quantity);
     printf("Unit price\t: %.2f\n", UnitPrice);
+
     printf("--------------------------------------------------------------------------------\n");
+
     printf("Subtotal\t: %.2f BDT\n", Subtotal);
     printf("Discount (25%%)\t: %.2f BDT\n", Discount);
     printf("Total\t: %.2f BDT\n", Total);
