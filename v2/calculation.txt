@@ -1,0 +1,5 @@
+Derived values
+
+subtotal = quantity * unitprice
+discount = subtotal * D (which is 25%)
+total = subtotal - discount
