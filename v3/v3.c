@@ -1,11 +1,11 @@
 #include <stdio.h>
 #define D 0.25 //D is the discount
 
-// Variable decrarations
+// Variable decrarations // Nafis
 int OrderNum, ClothingType, Quantity;
 double UnitPrice, Subtotal, Discount, Total;
 
-// Function prototypes
+// Function prototypes // Rabby
 void banner(void);
 void read_order(void);
 void print_order_record(double subtotal, double Discount, double Total);
@@ -15,7 +15,7 @@ double calculate_discount(double subtotal);
 
 
 // MAIN FUNCTION
-int main(void)
+int main(void) // Rayem
 {
     banner();
     menu();
@@ -32,7 +32,7 @@ int main(void)
 
 
 // ALL THE FUNCTIONS
-void banner(void) {
+void banner(void) { // Rabby
 
     printf("================================================================================\n");
     printf("                  TAILORING & BOUTIQUE ORDER BOOK SYSTEM                        \n");
@@ -40,7 +40,7 @@ void banner(void) {
 
 }
 
-void read_order(void){
+void read_order(void){ //Rabby
 
     printf("Enter order num.\t: ");
     scanf("%d", &OrderNum);
@@ -51,13 +51,13 @@ void read_order(void){
     printf("Enter Quantity\t: ");
     scanf("%d", &Quantity);
 
-    printf("Eeter unit price\t: ");
+    printf("Enter unit price\t: ");
     scanf("%lf", &UnitPrice);
 
 
 }
 
-void print_order_record(double subtotal, double Discount, double Total){
+void print_order_record(double subtotal, double Discount, double Total){ //Rabby
 
     printf("================================================================================\n");
     printf("                     ORDER RECORD                                               \n");
@@ -74,18 +74,18 @@ void print_order_record(double subtotal, double Discount, double Total){
 
 }
 
-void menu(void)
+void menu(void) // Nafis
 {
     printf("   Enter details of one order below \n");
     printf("--------------------------------------------------------------------------------\n");
 }
 
-double calculate_subtotal(int quantity, double price)
+double calculate_subtotal(int quantity, double price) // Rayem
 {
     return quantity * price;
 }
 
-double calculate_discount(double subtotal)
+double calculate_discount(double subtotal) //Rayem
 {
     return subtotal * D;
 }
