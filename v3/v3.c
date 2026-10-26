@@ -68,7 +68,7 @@ void print_order_record(double subtotal, double Discount, double Total){ //Rabby
     printf("Quantity\t: %d\n", Quantity);
     printf("Unit price\t: %.2f\n", UnitPrice);
     printf("--------------------------------------------------------------------------------\n");
-    printf("Subtotal\t: %.2f BDT\n", Subtotal);
+    printf("Subtotal\t: %.2f BDT\n", subtotal);
     printf("Discount (25%%)\t: %.2f BDT\n", Discount);
     printf("Total\t: %.2f BDT\n", Total);
 
