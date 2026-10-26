@@ -5,7 +5,7 @@
 int OrderNum, ClothingType, Quantity;
 double UnitPrice, Subtotal, Discount, Total;
 
-// Function prototypes // Rabby
+// Function prototypes // Rayem
 void banner(void);
 void read_order(void);
 void print_order_record(double subtotal, double Discount, double Total);
