@@ -1,5 +1,4 @@
 #include <stdio.h>
-#define D 0.25
 
 // Variable declarations // Nafis
 int OrderNum, ClothingType, Quantity;
