@@ -7,6 +7,7 @@ double UnitPrice, Subtotal, Discount, Total;
 // Function prototypes // Rayem
 void banner(void);
 void read_order(void);
+int select_clothing_type(void);
 void print_order_record(double subtotal, double Discount, double Total);
 void menu(void);
 double calculate_subtotal(int quantity, double price);
@@ -21,6 +22,10 @@ int main(void) // Rayem
     double cumulative_revenue = 0.0;
     double cumulative_discount = 0.0;
 
+    // Category-specific quantity and revenue accumulators
+    int count_panjabi = 0, count_sherwani = 0, count_kurta = 0, count_salwar = 0;
+    double rev_panjabi = 0.0, rev_sherwani = 0.0, rev_kurta = 0.0, rev_salwar = 0.0;
+
     banner();
 
     do {
@@ -28,7 +33,7 @@ int main(void) // Rayem
         scanf("%d", &choice);
 
         switch (choice) {
-        case 1: // Adding an order
+        case 1:
             read_order();
 
             Subtotal = calculate_subtotal(Quantity, UnitPrice);
@@ -40,13 +45,54 @@ int main(void) // Rayem
             cumulative_revenue += Total;
             cumulative_discount += Discount;
             total_orders++;
+
+            switch (ClothingType) {
+                case 1:
+                    count_panjabi += Quantity;
+                    rev_panjabi += Total;
+                    break;
+                case 2:
+                    count_sherwani += Quantity;
+                    rev_sherwani += Total;
+                    break;
+                case 3:
+                    count_kurta += Quantity;
+                    rev_kurta += Total;
+                    break;
+                case 4:
+                    count_salwar += Quantity;
+                    rev_salwar += Total;
+                    break;
+            }
             break;
 
-        case 2: // Show total summary
+        case 2:
             printf("\n================================================================================\n");
-            printf("                     ACCUMULATED TOTALS SUMMARY                                 \n");
+            printf("                     ACCUMULATED TOTALS & CLOTHING BREAKDOWN                    \n");
             printf("================================================================================\n");
             printf("Total orders entered\t: %d\n", total_orders);
+            printf("--------------------------------------------------------------------------------\n");
+            
+            if (total_orders == 0) {
+                printf("No orders have been entered yet.\n");
+            } else {
+                printf("Clothing Type breakdown (Only purchased items shown):\n");
+                
+                if (count_panjabi > 0) {
+                    printf("  - Panjabi     : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_panjabi, rev_panjabi);
+                }
+                if (count_sherwani > 0) {
+                    printf("  - Sherwani    : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_sherwani, rev_sherwani);
+                }
+                if (count_kurta > 0) {
+                    printf("  - Kurta       : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_kurta, rev_kurta);
+                }
+                if (count_salwar > 0) {
+                    printf("  - Salwar Kam. : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_salwar, rev_salwar);
+                }
+            }
+            
+            printf("--------------------------------------------------------------------------------\n");
             printf("Total discount given\t: %.2f BDT\n", cumulative_discount);
             printf("Total net revenue\t: %.2f BDT\n", cumulative_revenue);
             printf("================================================================================\n");
@@ -72,18 +118,39 @@ void banner(void) { // Rabby
     printf("================================================================================\n");
 }
 
+int select_clothing_type(void) { // Nafis
+    int cloth_choice;
+    
+    printf("\n--- SELECT CLOTHING TYPE ---\n");
+    printf("1. Panjabi\n");
+    printf("2. Sherwani\n");
+    printf("3. Kurta\n");
+    printf("4. Salwar Kameez\n");
+    printf("Enter choice (1-4): ");
+    scanf("%d", &cloth_choice);
+
+    switch (cloth_choice) {
+        case 1: return 1;
+        case 2: return 2;
+        case 3: return 3;
+        case 4: return 4;
+        default:
+            printf(">>> Invalid selection. Defaulting to Panjabi (Type 1).\n");
+            return 1;
+    }
+}
+
 void read_order(void) { // Rabby
-    printf("Enter order num\t\t: ");
+    printf("\nEnter order num\t\t: ");
     scanf("%d", &OrderNum);
     
-    printf("Enter cloth type (1 = panjabi)\t: ");
-    scanf("%d", &ClothingType);
+    ClothingType = select_clothing_type();
 
     printf("Enter Quantity\t\t: ");
     scanf("%d", &Quantity);
     
     if (Quantity < 0) {
-        printf("> Quantity cannot be negative\n");
+        printf(">>> Quantity cannot be negative - set to 0.\n");
         Quantity = 0;
     }
 
@@ -91,7 +158,7 @@ void read_order(void) { // Rabby
     scanf("%lf", &UnitPrice);
 
     if (UnitPrice < 0.0) {
-        printf("> Unit price cannot be negative - set to 0.00.\n");
+        printf(">>> Unit price cannot be negative - set to 0.00.\n");
         UnitPrice = 0.0;
     }
 }
@@ -102,7 +169,25 @@ void print_order_record(double subtotal, double discount, double total) { // Rab
     printf("================================================================================\n");
 
     printf(" Order No.\t: %d\n", OrderNum);
-    printf("Clothing Type\t: %d\n", ClothingType);
+    
+    printf("Clothing Type\t: ");
+    switch (ClothingType) {
+        case 1:
+            printf("Panjabi\n");
+            break;
+        case 2:
+            printf("Sherwani\n");
+            break;
+        case 3:
+            printf("Kurta\n");
+            break;
+        case 4:
+            printf("Salwar Kameez\n");
+            break;
+        default: 
+            printf("Custom / Other\n");
+    }
+
     printf("Quantity\t: %d\n", Quantity);
     printf("Unit price\t: %.2f BDT\n", UnitPrice);
     printf("--------------------------------------------------------------------------------\n");
@@ -129,12 +214,12 @@ double calculate_subtotal(int quantity, double price) // Rayem
 double calculate_discount(double subtotal) // Rayem
 {
     if (subtotal >= 5000.0) {
-        return subtotal * 0.25; // 25% off for 5000+ BDT
+        return subtotal * 0.25;
     } else if (subtotal >= 2000.0) {
-        return subtotal * 0.15; // 15% off for 2000-4999 BDT
+        return subtotal * 0.15;
     } else if (subtotal >= 1000.0) {
-        return subtotal * 0.10; // 10% off for 1000-1999 BDT
+        return subtotal * 0.10;
     } else {
-        return 0.0; // No discount below 1000 BDT
+        return 0.0;
     }
 }
