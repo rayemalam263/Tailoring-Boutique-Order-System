@@ -1,0 +1,15 @@
+Test 1 - Invalid menu choice
+Inputs entered: Menu: 9, then 3
+What happened: Printed ">>> Invalid choice. Choose 1, 2 or 3." and safely asked again.   
+
+Test 2 - Invalid clothing type
+Inputs entered: Menu: 1, Order: 101, Type: 5, Qty: 2, Price: 1500
+What happened: Printed ">> Invalid selection. default to panjabi", selected Panjabi, and theb applied the 15% discount (450.00 BDT off 3000.00 BDT).   
+
+Test 3 - Negative quantity
+Inputs entered: Menu: 1, Order: 102, Type: 2, Qty: -5, Price: 2000
+What happened: Printed ">>> Quantity cannot be negative - set to 0." and set quantity to 0 (0.00 BDT total).   
+
+Test 4 - Negative unit price
+Inputs entered: Menu: 1, Order: 103, Type: 3, Qty: 4, Price: -1200.50
+What happened: Printed ">>> Unit price cannot be negative - set to 0.00." and set price to 0.00 (0.00 BDT total).   

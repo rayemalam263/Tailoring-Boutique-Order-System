@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Variable declarations // Nafis
+// Variable declarations // Rabby
 int OrderNum, ClothingType, Quantity;
 double UnitPrice, Subtotal, Discount, Total;
 
@@ -79,16 +79,16 @@ int main(void) // Rayem
                 printf("Clothing Type breakdown (Only purchased items shown):\n");
                 
                 if (count_panjabi > 0) {
-                    printf("  - Panjabi     : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_panjabi, rev_panjabi);
+                    printf("Panjabi     : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_panjabi, rev_panjabi);
                 }
                 if (count_sherwani > 0) {
-                    printf("  - Sherwani    : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_sherwani, rev_sherwani);
+                    printf("Sherwani    : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_sherwani, rev_sherwani);
                 }
                 if (count_kurta > 0) {
-                    printf("  - Kurta       : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_kurta, rev_kurta);
+                    printf("Kurta       : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_kurta, rev_kurta);
                 }
                 if (count_salwar > 0) {
-                    printf("  - Salwar Kam. : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_salwar, rev_salwar);
+                    printf("Salwar Kam. : Qty Sold = %-3d | Total Revenue = %.2f BDT\n", count_salwar, rev_salwar);
                 }
             }
             
@@ -118,7 +118,7 @@ void banner(void) { // Rabby
     printf("================================================================================\n");
 }
 
-int select_clothing_type(void) { // Nafis
+int select_clothing_type(void) { // Rabby
     int cloth_choice;
     
     printf("\n--- SELECT CLOTHING TYPE ---\n");
@@ -196,7 +196,7 @@ void print_order_record(double subtotal, double discount, double total) { // Rab
     printf("Total\t\t: %.2f BDT\n", total);
 }
 
-void menu(void) // Nafis
+void menu(void) // Rayem
 {
     printf("\n================================================================================\n");
     printf("1. Add an order\n");
