@@ -135,7 +135,7 @@ int select_clothing_type(void) { // Nafis
         case 3: return 3;
         case 4: return 4;
         default:
-            printf(">>> Invalid selection. Defaulting to Panjabi (Type 1).\n");
+            printf(">> Invalid selection. default to panjabi\n");
             return 1;
     }
 }
